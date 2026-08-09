@@ -62,6 +62,17 @@ for (const u of urls) {
 }
 console.log('✅ 이미지 확인');
 
+const quota = await graph(`${igUser}/content_publishing_limit`, {
+  fields: 'config,quota_usage', access_token: token,
+});
+const q = quota.data?.[0] || {};
+console.log(`✅ 할당량 ${q.quota_usage ?? '?'} / ${q.config?.quota_total ?? '?'}`);
+
+if (process.env.DRY_RUN === 'true') {
+  console.log('\n🟡 DRY_RUN — 여기까지만. 실제 게시는 하지 않았습니다.');
+  process.exit(0);
+}
+
 const children = [];
 for (let i = 0; i < urls.length; i++) {
   const { id } = await graph(`${igUser}/media`, {

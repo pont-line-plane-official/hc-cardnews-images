@@ -9,6 +9,11 @@ on:
     # 11:00 UTC = 20:00 KST. GitHub 크론은 몇 분 늦게 뜰 수 있다(정상).
     - cron: '0 11 * * *'
   workflow_dispatch:        # 수동 실행 버튼
+    inputs:
+      dry_run:
+        description: '게시하지 않고 점검만'
+        type: boolean
+        default: false
 
 permissions:
   contents: write           # 게시 기록(posted_at)을 커밋하기 위해 필요
@@ -31,6 +36,7 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: node publish/ig_publish.mjs
 
       - name: 게시 기록 커밋
