@@ -1,0 +1,44 @@
+# 하트커넥트 카드뉴스 자동 게시
+#
+# 원본: heart-connect-docs/marketing/content_engine/deploy/workflow.yml
+# 여기서 고치지 말고 원본을 고친 뒤 `node src/deploy_schedule.mjs` 로 배포할 것.
+name: publish cardnews
+
+on:
+  schedule:
+    # 11:00 UTC = 20:00 KST. GitHub 크론은 몇 분 늦게 뜰 수 있다(정상).
+    - cron: '0 11 * * *'
+  workflow_dispatch:        # 수동 실행 버튼
+
+permissions:
+  contents: write           # 게시 기록(posted_at)을 커밋하기 위해 필요
+
+concurrency:
+  group: publish-cardnews   # 중복 실행 방지
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 게시
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: node publish/ig_publish.mjs
+
+      - name: 게시 기록 커밋
+        run: |
+          if [ -n "$(git status --porcelain publish/schedule.json)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add publish/schedule.json
+            git commit -m "record post $(date -u +%Y-%m-%d)"
+            git push
+          fi
