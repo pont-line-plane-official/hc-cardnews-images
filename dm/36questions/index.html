@@ -68,18 +68,19 @@ h1{
 /* ── 질문 목록 ────────────────────────── */
 .set{margin:44px 0 0}
 .set > h2{
-  font-size:14px; font-weight:800; color:var(--coral);
-  letter-spacing:.06em; margin:0 0 4px;
+  font-size:20px; font-weight:800; color:var(--coral);
+  letter-spacing:-.01em; margin:0 0 5px;
 }
-.set > .set-sub{font-size:14px; color:var(--muted); margin:0 0 18px}
+.set > .set-sub{font-size:16px; color:var(--muted); margin:0 0 16px}
 ol.q{margin:0; padding:0; list-style:none; counter-reset:none}
 ol.q li{
   display:flex; gap:14px; align-items:baseline;
   padding:13px 0; border-bottom:1px solid var(--line);
+  font-size:15.5px; line-height:1.66;   /* 세트 헤더보다 작게 — 위계 */
 }
 ol.q li:last-child{border-bottom:0}
 ol.q .n{
-  flex:0 0 30px; font-variant-numeric:tabular-nums;
+  flex:0 0 28px; font-variant-numeric:tabular-nums;
   font-weight:800; color:var(--muted); font-size:15px;
 }
 
@@ -107,7 +108,7 @@ ol.q .n{
   background:var(--paper); border:1px solid var(--line);
   border-radius:18px;
 }
-.cta-end h2{font-size:22px; font-weight:800; margin:0 0 16px; line-height:1.42; letter-spacing:-.02em}
+.cta-end h2{font-size:22px; font-weight:800; margin:0 0 10px; line-height:1.42; letter-spacing:-.02em}
 .cta-end p{margin:0 0 15px; color:var(--sub); font-size:16px}
 .cta-end strong{color:var(--ink); font-weight:700}
 .btn{
@@ -139,8 +140,8 @@ ol.q .n{
 <h1>모르는 사람과<br>사랑에 빠지는 36가지 질문</h1>
 <div class="intro">
 <p>1997년 뉴욕주립대 아서 아론 교수팀이 만든 질문 목록입니다.</p>
-<p>연구팀은 처음 만난 사람들을 둘씩 짝지어 45분간 질문을 주고받게 했습니다.<br>한쪽은 점점 깊어지는 질문을, 한쪽은 잡담 수준의 질문을 받았어요.</p>
-<p>깊은 질문을 주고받은 쪽은 상대를 ‘인생에서 가장 가까운 관계’만큼 가깝게 느꼈습니다.<br>한 커플은 실제로 결혼까지 했고요.</p>
+<p>연구팀은 처음 만난 사람들을 둘씩 짝지어 45분간 질문을 주고받게 했습니다. 한쪽은 점점 깊어지는 질문을, 한쪽은 잡담 수준의 질문을 받았어요.</p>
+<p>깊은 질문을 주고받은 쪽은 상대를 ‘인생에서 가장 가까운 관계’만큼 가깝게 느꼈습니다. 한 커플은 실제로 결혼까지 했고요.</p>
 <p>핵심은 질문 자체가 아니라 <strong>순서</strong>였습니다.<br>가볍게 시작해서 조금씩 깊어지고, 둘 다 똑같이 답하는 것.</p>
 </div>
 <section class="howto">
@@ -153,9 +154,9 @@ ol.q .n{
 </section>
 <section class="cta-mid">
 <h2>함께 이야기할 사람이 필요하다면</h2>
-<p>이 질문들은 원래 처음 만난 사이에서 가장 잘 통한다고 합니다. 연구도 그렇게 했고요.<br>문제는 요즘 처음 만난 사람과 이렇게 이야기하기가 어렵다는 거죠. 하지만 걱정 마세요.</p>
-<p>대화를 통해 결이 맞는 사람을 찾아가는 블라인드 연프 하트커넥트와 함께라면<br>이런 대화를 나눠보실 수 있어요.</p>
-<p><a href="https://www.heartconnect.my/app?utm_source=instagram&utm_medium=dm&utm_campaign=a1_36questions&utm_content=mid">→ 하트커넥트 보러 가기</a></p>
+<p>이 질문들은 원래 처음 만난 사이에서 가장 잘 통한다고 합니다. 연구도 그렇게 했고요. 문제는 요즘 처음 만난 사람과 이렇게 이야기하기가 어렵다는 거죠. 하지만 걱정 마세요.</p>
+<p>대화를 통해 결이 맞는 사람을 찾아가는 블라인드 연프 하트커넥트와 함께라면 이런 대화를 나눠보실 수 있어요.</p>
+<p><a href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a1_36questions&utm_content=mid">→ 하트커넥트 보러 가기</a></p>
 </section>
 <section class="set">
 <h2>세트 1</h2>
@@ -215,8 +216,8 @@ ol.q .n{
 <h2>36가지 질문을 다 읽으셨네요 🙂</h2>
 <p>이제 상대만 있으면 되겠어요!</p>
 <p>하트커넥트에서는 대화로 먼저 시작해요.<br>좋아하는 것, 싫어하는 것, 웃는 지점부터 알게 되는 거예요.<br>36가지 질문이 하려던 게 정확히 그거고요.</p>
-<p>회차가 열리면 질문에 답을 쓰고,<br>얼굴 대신 <strong>답변만 보고 결이 맞는 사람을 고르는 ‘블라인드 픽’</strong>을 해요.<br>36번까지 가기 전에 마음이 먼저 움직일지도 몰라요 +_+</p>
-<a class="btn" href="https://www.heartconnect.my/app?utm_source=instagram&utm_medium=dm&utm_campaign=a1_36questions&utm_content=end">하트커넥트 시작하기</a>
+<p>회차가 열리면 질문에 답을 쓰고,<br>얼굴 대신 <strong>답변만 보고 결이 맞는 사람을 고르는 ‘블라인드 픽’</strong>을 해요. 36번까지 가기 전에 마음이 먼저 움직일지도 몰라요 +_+</p>
+<a class="btn" href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a1_36questions&utm_content=end">하트커넥트 시작하기</a>
 <p class="kicker">처음 가입하면 하트 30개도 드리니 꼭 확인해보세요!</p>
 </section>
 <footer class="src">
