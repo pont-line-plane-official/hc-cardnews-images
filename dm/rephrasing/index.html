@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>안 싸우는 말투 20문장 | 하트커넥트</title>
+<meta name="description" content="고트만 교수가 찾은 네 가지 방법을 실제로 쓸 수 있는 문장 20개로.">
+<meta property="og:title" content="안 싸우는 말투 20문장">
+<meta property="og:description" content="고트만 교수가 찾은 네 가지 방법을 실제로 쓸 수 있는 문장 20개로.">
+<meta property="og:type" content="article">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 하트커넥트 DM 자료 페이지 — 공통 스타일
+   토큰은 templates/card.html :root 와 동일하게 유지한다. */
+:root{
+  --bg:#FBF7F2; --paper:#FFFCF8; --ink:#231D1B; --sub:#5C4F4A;
+  --muted:#9C8D87; --coral:#E0562F; --line:rgba(35,29,27,.12);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Pretendard','Apple SD Gothic Neo',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:17px; line-height:1.72; word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:620px; margin:0 auto; padding:44px 22px 64px}
+
+/* ── 머리말 ───────────────────────────── */
+.brand{
+  font-size:13px; letter-spacing:.14em; color:var(--muted);
+  font-weight:700; margin:0 0 22px;
+}
+h1{
+  font-size:30px; line-height:1.34; font-weight:800;
+  letter-spacing:-.02em; margin:0 0 26px;
+}
+.intro p{margin:0 0 17px; color:var(--sub)}
+.intro strong{color:var(--ink); font-weight:700}
+
+/* ── 쓰는 법 ──────────────────────────── */
+.howto{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:14px; padding:22px 24px; margin:30px 0;
+}
+.howto h2{font-size:16px; font-weight:800; margin:0 0 12px; letter-spacing:-.01em}
+.howto ul{margin:0; padding-left:19px}
+.howto li{margin:7px 0; color:var(--sub); font-size:16px}
+
+/* ── 중간 CTA — 박스, 버튼 없음 ─────────── */
+.cta-mid{
+  border-left:3px solid var(--coral);
+  background:var(--paper);
+  border-radius:0 14px 14px 0;
+  padding:26px 24px; margin:38px 0;
+}
+.cta-mid h2{
+  font-size:19px; font-weight:800; margin:0 0 14px;
+  letter-spacing:-.015em; line-height:1.45;
+}
+.cta-mid p{margin:0 0 14px; color:var(--sub); font-size:16px}
+.cta-mid a{
+  color:var(--coral); font-weight:700; text-decoration:none;
+  border-bottom:1.5px solid rgba(224,86,47,.34); padding-bottom:1px;
+}
+
+/* ── 질문 목록 ────────────────────────── */
+.set{margin:44px 0 0}
+.set > h2{
+  font-size:14px; font-weight:800; color:var(--coral);
+  letter-spacing:.06em; margin:0 0 4px;
+}
+.set > .set-sub{font-size:14px; color:var(--muted); margin:0 0 18px}
+ol.q{margin:0; padding:0; list-style:none; counter-reset:none}
+ol.q li{
+  display:flex; gap:14px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--line);
+}
+ol.q li:last-child{border-bottom:0}
+ol.q .n{
+  flex:0 0 30px; font-variant-numeric:tabular-nums;
+  font-weight:800; color:var(--muted); font-size:15px;
+}
+
+/* ── 바꿔 말하기 표 ───────────────────── */
+.sec{margin:46px 0 0}
+.sec h2{font-size:20px; font-weight:800; margin:0 0 6px; letter-spacing:-.015em}
+.sec .lead{font-size:15px; color:var(--muted); margin:0 0 18px}
+.pair{border-top:1px solid var(--line); padding:16px 0}
+.pair .before{
+  color:var(--muted); font-size:16px; margin:0 0 7px;
+  text-decoration:line-through; text-decoration-color:rgba(156,141,135,.5);
+}
+.pair .before.plain{text-decoration:none; font-style:italic}
+.pair .after{margin:0; font-size:17px; font-weight:600}
+.note{
+  margin:18px 0 0; padding:14px 16px; background:var(--paper);
+  border:1px solid var(--line); border-radius:12px;
+  font-size:15px; color:var(--sub);
+}
+.note strong{color:var(--ink)}
+
+/* ── 하단 CTA — 버튼 ──────────────────── */
+.cta-end{
+  margin:56px 0 0; padding:32px 26px;
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:18px;
+}
+.cta-end h2{font-size:22px; font-weight:800; margin:0 0 16px; line-height:1.42; letter-spacing:-.02em}
+.cta-end p{margin:0 0 15px; color:var(--sub); font-size:16px}
+.cta-end strong{color:var(--ink); font-weight:700}
+.btn{
+  display:block; margin:26px 0 14px; padding:17px 20px;
+  background:var(--coral); color:#fff; text-align:center;
+  border-radius:13px; font-size:17px; font-weight:800;
+  text-decoration:none; letter-spacing:-.01em;
+}
+.kicker{margin:0; font-size:15px; color:var(--coral); font-weight:700; text-align:center}
+
+/* ── 출처 ─────────────────────────────── */
+.src{
+  margin:46px 0 0; padding-top:22px; border-top:1px solid var(--line);
+  font-size:13px; line-height:1.7; color:var(--muted);
+}
+.src a{color:var(--muted); word-break:break-all}
+.src p{margin:0 0 8px}
+
+@media (max-width:400px){
+  body{font-size:16px}
+  h1{font-size:26px}
+  .wrap{padding:36px 18px 56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="brand">HEARTCONNECT</p>
+<h1>안 싸우는 말투 20문장</h1>
+<div class="intro">
+<p>워싱턴대 존 고트만 교수는 40년간 3천 쌍이 넘는 부부를 관찰했습니다.<br>아파트처럼 꾸민 연구실에서 주말을 보내게 하고, 대화를 전부 녹화했어요.</p>
+<p>오래간 부부와 갈라선 부부를 가른 건 싸움의 횟수가 아니었습니다.<br><strong>싸우는 방식</strong>이었어요.<br>바로 관계를 무너뜨리는 네 가지 대화 습관이었죠. 비난, 경멸, 방어, 담쌓기.</p>
+<p>다행히 고트만 교수는 그 말투를 바꾸는 방법도 같이 찾았습니다.<br>그 방법을 실제로 쓸 수 있는 문장으로 옮겼어요.</p>
+</div>
+<section class="howto">
+<h2>쓰는 법</h2>
+<ul>
+<li>왼쪽이 흔히 하는 말, 오른쪽이 바꾼 말입니다.</li>
+<li>다 외우지 마세요. 하나만 골라서 이번 주에 한 번 써보면 됩니다.</li>
+</ul>
+</section>
+<section class="cta-mid">
+<h2>말투를 바꾸는 것보다 어려운 건 뭘까요?</h2>
+<p>바로 대화할 준비가 되어 있는 사람을 만나는 거예요.<br>사진만 봐서는 알 수가 없죠.</p>
+<p>하트커넥트는 대화를 통해 결이 맞는 사람을 찾아가는 블라인드 연애 프로그램이에요.<br>대화할 준비가 되어 있는 사람들이 모여 있어요.<br>어떤 곳인지 궁금하다면 한번 자세히 확인해보세요.</p>
+<p><a href="https://www.heartconnect.my/app">→ 하트커넥트 보러 가기</a></p>
+</section>
+<section class="sec">
+<h2>1. 부드럽게 시작하기</h2>
+<p class="lead">비난 대신 내 마음</p>
+<div class="pair">
+<p class="before">“넌 왜 맨날 늦어?”</p>
+<p class="after">“기다리는 동안 좀 서운했어. 늦을 것 같으면 미리 알려주면 더 좋을 것 같아.”</p>
+</div>
+<div class="pair">
+<p class="before">“왜 말을 안 해?”</p>
+<p class="after">“요즘 네 생각을 잘 모르겠어서 답답해. 얘기 좀 해줄래?”</p>
+</div>
+<div class="pair">
+<p class="before">“넌 나한테 관심도 없지.”</p>
+<p class="after">“요즘 같이 보내는 시간이 줄어서 아쉬워. 이번 주말에 시간 낼 수 있어?”</p>
+</div>
+<div class="pair">
+<p class="before">“이걸 왜 이렇게 해놨어?”</p>
+<p class="after">“나는 이런 방식이 편한데, 우리 한번 맞춰볼까?”</p>
+</div>
+<div class="pair">
+<p class="before">“너 진짜 이기적이다.”</p>
+<p class="after">“내 사정도 같이 생각해주면 좋겠어.”</p>
+</div>
+<div class="note">상대를 주어로 시작하면 비난이 되고, <strong>나를 주어로 시작하면 부탁</strong>이 됩니다.</div>
+</section>
+<section class="sec">
+<h2>2. 고마움을 말로 하기</h2>
+<p class="lead">싸울 때 말고 평소에</p>
+<div class="pair">
+<p class="before plain">(아무 말 안 함)</p>
+<p class="after">“어제 데려다줘서 고마웠어.”</p>
+</div>
+<div class="pair">
+<p class="before">“그건 당연히 해야지.”</p>
+<p class="after">“네가 챙겨줘서 편했어.”</p>
+</div>
+<div class="pair">
+<p class="before">“그 정도는 나도 해.”</p>
+<p class="after">“나는 그거 잘 못하는데, 너는 참 잘하더라.”</p>
+</div>
+<div class="pair">
+<p class="before">“또 그 얘기야?”</p>
+<p class="after">“그 얘기 좋아하는구나. 왜 그렇게 좋아?”</p>
+</div>
+<div class="pair">
+<p class="before plain">(싸운 뒤 침묵)</p>
+<p class="after">“화는 났지만, 네가 노력한 건 알아.”</p>
+</div>
+<div class="note">이건 싸울 때 쓰는 말이 아닙니다. <strong>평소에 쌓아둬야 싸울 때 버팁니다.</strong></div>
+</section>
+<section class="sec">
+<h2>3. 내 몫 먼저 인정하기</h2>
+<p class="lead">방어 대신 책임</p>
+<div class="pair">
+<p class="before">“나는 잘못한 거 없는데?”</p>
+<p class="after">“그 부분은 내가 잘못했어.”</p>
+</div>
+<div class="pair">
+<p class="before">“너도 그랬잖아.”</p>
+<p class="after">“내가 먼저 말투가 세게 나갔네. 미안해.”</p>
+</div>
+<div class="pair">
+<p class="before">“그런 뜻 아니었잖아.”</p>
+<p class="after">“그렇게 들렸다면 내 말이 부족했어.”</p>
+</div>
+<div class="pair">
+<p class="before">“왜 나만 갖고 그래.”</p>
+<p class="after">“네 말도 맞는 부분이 있어. 거기부터 얘기하자.”</p>
+</div>
+<div class="pair">
+<p class="before">“내가 언제 그랬어?”</p>
+<p class="after">“기억이 다를 수도 있겠다. 네가 느낀 걸 먼저 말해줄래?”</p>
+</div>
+<div class="note">전부 인정할 필요는 없습니다. <strong>내 몫만</strong> 먼저 인정하면 대화가 다시 열립니다.</div>
+</section>
+<section class="sec">
+<h2>4. 20분 쉬기</h2>
+<p class="lead">담쌓기와 다른 점은 ‘돌아온다고 말하기’</p>
+<div class="pair">
+<p class="before plain">(말없이 방에 들어감)</p>
+<p class="after">“지금은 머리가 안 돌아가. 20분만 있다 다시 얘기하자.”</p>
+</div>
+<div class="pair">
+<p class="before">“됐어. 그만하자.”</p>
+<p class="after">“이대로 가면 서로 상처만 줄 것 같아. 잠깐 쉬었다 할까?”</p>
+</div>
+<div class="pair">
+<p class="before plain">(휴대폰만 봄)</p>
+<p class="after">“잠깐 숨 좀 돌리고 올게. 도망가는 거 아니야.”</p>
+</div>
+<div class="pair">
+<p class="before plain">(그냥 자러 감)</p>
+<p class="after">“오늘은 여기까지 하고, 내일 아침에 마저 얘기하자.”</p>
+</div>
+<div class="pair">
+<p class="before plain">(그대로 없던 일로)</p>
+<p class="after">“아까 그 얘기, 다시 해도 될까?”</p>
+</div>
+<div class="note">20분은 심장이 진정되는 데 걸리는 시간입니다. 그전에는 무슨 말을 해도 안 통합니다.<br>말없이 나가면 담쌓기, <strong>돌아온다고 말하고 나가면 쉬기</strong>입니다.</div>
+</section>
+<section class="cta-end">
+<h2>사실 말투는 만나기 전부터 드러납니다.</h2>
+<p>어떻게 묻는지, 안 좋은 얘기를 어떻게 꺼내는지, 미안하다고 언제 말하는지.</p>
+<p>하트커넥트는 대화로 먼저 만나요.<br>커뮤니티에서도 단톡방에서도 <strong>어떻게 말하는 사람인지 먼저 보여요.</strong><br>얼굴은 AI 일러스트라 부담 없고, 대신 말투가 남는 거예요.</p>
+<p>이 20문장 같이 쓸 사람, 여기서 만나실지도 모르겠네요 +_+</p>
+<a class="btn" href="https://www.heartconnect.my/app?utm_source=instagram&utm_medium=dm&utm_campaign=a2_rephrasing">하트커넥트 시작하기</a>
+<p class="kicker">처음 가입하면 하트 30개도 드리니 꼭 확인해보세요!</p>
+</section>
+<footer class="src">
+<p>Gottman, J. M. &amp; Silver, N. The Seven Principles for Making Marriage Work.</p>
+<p>The Gottman Institute — 네 가지 대화 습관</p>
+<p><a href="https://www.gottman.com/blog/the-four-horsemen-recognizing-criticism-contempt-defensiveness-and-stonewalling/">https://www.gottman.com/blog/the-four-horsemen-recognizing-criticism-contempt-defensiveness-and-stonewalling/</a></p>
+<p>The Gottman Institute — 그 넷을 바꾸는 방법</p>
+<p><a href="https://www.gottman.com/blog/the-four-horsemen-the-antidotes/">https://www.gottman.com/blog/the-four-horsemen-the-antidotes/</a></p>
+<p>예시 문장은 하트커넥트가 쓴 것입니다.</p>
+</footer>
+</div>
+</body>
+</html>
