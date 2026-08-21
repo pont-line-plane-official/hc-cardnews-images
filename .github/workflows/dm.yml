@@ -1,0 +1,58 @@
+# 하트커넥트 댓글 → 자동 DM
+#
+# 원본: heart-connect-docs/marketing/content_engine/deploy/dm_workflow.yml
+# 여기서 고치지 말고 원본을 고친 뒤 `node src/deploy_schedule.mjs` 로 배포할 것.
+#
+# 🔴 발송(비공개 답장)은 앱 심사 없이 된다(2026-08-21 실측).
+#    답장 읽기·팔로우 확인은 고급 액세스가 필요해 현재 1단계 모드로 돈다.
+name: dm bot
+
+on:
+  schedule:
+    # 10분마다. GitHub 크론은 부하에 따라 늦거나 건너뛸 수 있다(정상).
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '발송하지 않고 무엇을 보낼지만 확인'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write           # 발송 기록(state.json)을 커밋하기 위해 필요
+
+concurrency:
+  group: dm-bot             # 중복 실행 = 중복 발송. 반드시 막는다
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 폴링
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_PAGE_ID: ${{ secrets.IG_PAGE_ID }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python3 dm/dm_bot.py --run --dry
+          else
+            python3 dm/dm_bot.py --run
+          fi
+
+      - name: 발송 기록 커밋
+        run: |
+          if [ -n "$(git status --porcelain dm/state.json)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add dm/state.json
+            git commit -m "dm: 발송 기록 $(date -u +%Y-%m-%dT%H:%M)"
+            git push
+          fi
