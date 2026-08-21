@@ -1,0 +1,5 @@
+# GitHub Pages(Jekyll) 서빙 제외 — 봇 코드·발송 기록은 공개하지 않는다.
+# 🔴 state.json 에는 자료 요청자 식별자(해시)가 쌓인다. 절대 서빙되면 안 된다.
+exclude:
+  - dmbot
+  - publish
