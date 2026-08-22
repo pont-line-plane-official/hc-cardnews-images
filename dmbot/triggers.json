@@ -1,0 +1,44 @@
+{
+  "_doc": [
+    "댓글 키워드 → 자동 DM 규칙. dm_bot.py 가 읽는다.",
+    "media_id 는 릴스를 게시한 뒤 `python3 src/dm_bot.py --media` 로 찾아 채운다.",
+    "two_step=true 면 1통(링크 없음) → 답장 확인 → 2통(링크).",
+    "🔴 첫 메시지에 링크를 넣는 패턴이 스팸 판정을 부른다. 기본은 true 로 둔다.",
+    "require_follow=true 면 2통(링크) 전에 is_user_follow_business 를 확인한다. 팔로우 전이면 nudge 를 보내고, 다음 폴링에서 다시 확인한다(안내는 1회만).",
+    "🔴 타이핑 대신 **버튼**(quick=빠른답장 / button=URL버튼). 타계정 실사례 기준.",
+    "is_user_follow_business 가 **명시적으로 False 일 때만** 막는다 — 필드가 안 오면(None) 그냥 보낸다. 조회 실패로 사람을 막지 않는다.",
+    "🔴 two_step=false 인 이유 — 심사(Advanced Access) 전에는 **사용자 답장을 읽을 수 없어** 2단계가 불가능하다(2026-08-21 실측: 대화 조회 (#200)). 심사 통과하면 true 로 되돌린다.",
+    "⚠️ 심사 제출 직전에는 리뷰어가 댓글을 달 **테스트 게시물의 media_id 를 등록**하고 폴링을 켜둬야 한다. 안 그러면 리뷰어 댓글에 반응이 없어 반려된다(APP_REVIEW.md §3)."
+  ],
+  "two_step": false,
+  "daily_cap": 60,
+  "triggers": [
+    {
+      "id": "a1_36questions",
+      "keyword": "사랑",
+      "media_slug": "r07_36questions",
+      "media_id": "",
+      "link": "https://pont-line-plane-official.github.io/hc-cardnews-images/dm/36questions/",
+      "dm1": "댓글 남겨주셔서 감사합니다 🙌\n36가지 질문 전체는 팔로워분들께 보내드리고 있어요.\n@heartconnect.my 팔로우하셨다면 아래 버튼을 눌러주세요!",
+      "dm2": "36가지 질문 전체 보내드릴게요!\n\n순서대로 보시는 게 중요해요 — 번호가 뒤로 갈수록 깊어지게 설계돼 있거든요. 좋은 대화 나누시길 바라요 ☺️",
+      "nudge": "앗, 아직 팔로우가 확인되지 않았어요 🥲\n@heartconnect.my 팔로우하시고 버튼을 다시 눌러주세요!",
+      "quick": "팔로우했어요",
+      "button": "질문 보러 가기",
+      "dm_solo": "댓글 남겨주셔서 감사합니다 🙌\n36가지 질문 전체 보내드릴게요!\n\n순서대로 보시는 게 중요해요 — 번호가 뒤로 갈수록 깊어지게 설계돼 있거든요.\n@heartconnect.my 팔로우해두시면 다음 자료도 먼저 챙겨드릴게요 :)"
+    },
+    {
+      "id": "a2_rephrasing",
+      "keyword": "대화",
+      "media_slug": "r11_antidotes",
+      "media_id": "",
+      "link": "https://pont-line-plane-official.github.io/hc-cardnews-images/dm/rephrasing/",
+      "dm1": "댓글 남겨주셔서 감사합니다 🙌\n안 싸우는 말투 20문장는 팔로워분들께 보내드리고 있어요.\n@heartconnect.my 팔로우하셨다면 아래 버튼을 눌러주세요!",
+      "dm2": "안 싸우는 말투 20문장 보내드릴게요!\n\n다 외우지 마시고 하나만 골라서 이번 주에 한 번 써보세요 ☺️",
+      "nudge": "앗, 아직 팔로우가 확인되지 않았어요 🥲\n@heartconnect.my 팔로우하시고 버튼을 다시 눌러주세요!",
+      "quick": "팔로우했어요",
+      "button": "문장 보러 가기",
+      "dm_solo": "댓글 남겨주셔서 감사합니다 🙌\n안 싸우는 말투 20문장 보내드릴게요!\n\n다 외우지 마시고 하나만 골라서 이번 주에 한 번 써보세요 ☺️\n@heartconnect.my 팔로우해두시면 다음 자료도 먼저 챙겨드릴게요 :)"
+    }
+  ],
+  "require_follow": true
+}
