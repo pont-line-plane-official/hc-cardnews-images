@@ -57,8 +57,9 @@ if (entry.posted_at) { console.log(`${todayKST} 이미 게시함 (${entry.posted
 const base = sched.base_url.replace(/\/$/, '');
 const isReel = entry.kind === 'reel';
 
+const coverUrl = isReel && entry.cover ? `${base}/reels/covers/${entry.cover}` : null;
 const urls = isReel
-  ? [`${base}/reels/${entry.video}`]
+  ? [`${base}/reels/${entry.video}`, ...(coverUrl ? [coverUrl] : [])]
   : Array.from({ length: entry.cards }, (_, i) =>
       `${base}/${entry.slug}/4x5/${String(i + 1).padStart(2, '0')}.png`);
 
@@ -91,6 +92,9 @@ if (isReel) {
     video_url: urls[0],
     caption: entry.caption,
     share_to_feed: 'true',
+    // 🔴 표지 — cover_url 이 thumb_offset 을 이긴다. 9:16 권장 · 8MB 이하.
+    //    영상 프레임보다 글자가 선명하고 프로필 그리드 톤이 통일된다.
+    ...(coverUrl ? { cover_url: coverUrl } : {}),
     ...(entry.thumb_offset ? { thumb_offset: String(entry.thumb_offset) } : {}),
     access_token: token,
   }, 'POST');
