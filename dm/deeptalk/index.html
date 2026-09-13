@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대화가 깊어지는 순서 | 하트커넥트</title>
+<meta name="description" content="가볍게 열고 한 뼘 더 들어가는 질문 30개 + 상대가 답한 뒤 이어가는 법.">
+<meta property="og:title" content="대화가 깊어지는 순서">
+<meta property="og:description" content="가볍게 열고 한 뼘 더 들어가는 질문 30개 + 상대가 답한 뒤 이어가는 법.">
+<meta property="og:type" content="article">
+<meta name="robots" content="noindex">
+<style>
+/* 하트커넥트 DM 자료 페이지 — 공통 스타일
+   토큰은 templates/card.html :root 와 동일하게 유지한다. */
+:root{
+  --bg:#FBF7F2; --paper:#FFFCF8; --ink:#231D1B; --sub:#5C4F4A;
+  --muted:#9C8D87; --coral:#E0562F; --line:rgba(35,29,27,.12);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  font-size:17px; line-height:1.72; word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:620px; margin:0 auto; padding:44px 22px 64px}
+
+/* ── 머리말 ───────────────────────────── */
+.brand{
+  font-size:13px; letter-spacing:.14em; color:var(--muted);
+  font-weight:700; margin:0 0 22px;
+}
+h1{
+  font-size:30px; line-height:1.34; font-weight:800;
+  letter-spacing:-.02em; margin:0 0 26px;
+}
+.intro p{margin:0 0 17px; color:var(--sub)}
+.intro strong{color:var(--ink); font-weight:700}
+
+/* ── 쓰는 법 ──────────────────────────── */
+.howto{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:14px; padding:22px 24px; margin:30px 0;
+}
+.howto h2{font-size:16px; font-weight:800; margin:0 0 12px; letter-spacing:-.01em}
+.howto ul{margin:0; padding-left:19px}
+.howto li{margin:7px 0; color:var(--sub); font-size:16px}
+
+/* ── 중간 CTA — 박스, 버튼 없음 ─────────── */
+.cta-mid{
+  border-left:3px solid var(--coral);
+  background:var(--paper);
+  border-radius:0 14px 14px 0;
+  padding:26px 24px; margin:38px 0;
+}
+.cta-mid h2{
+  font-size:19px; font-weight:800; margin:0 0 14px;
+  letter-spacing:-.015em; line-height:1.45;
+}
+.cta-mid p{margin:0 0 14px; color:var(--sub); font-size:16px}
+.cta-mid a{
+  color:var(--coral); font-weight:700; text-decoration:none;
+  border-bottom:1.5px solid rgba(224,86,47,.34); padding-bottom:1px;
+}
+
+/* ── 질문 목록 ────────────────────────── */
+.set{margin:44px 0 0}
+.set > h2{
+  font-size:20px; font-weight:800; color:var(--coral);
+  letter-spacing:-.01em; margin:0 0 5px;
+}
+.set > .set-sub{font-size:16px; color:var(--muted); margin:0 0 16px}
+ol.q{margin:0; padding:0; list-style:none; counter-reset:none}
+ol.q li{
+  display:flex; gap:14px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--line);
+  font-size:15.5px; line-height:1.66;   /* 세트 헤더보다 작게 — 위계 */
+}
+ol.q li:last-child{border-bottom:0}
+ol.q .n{
+  flex:0 0 28px; font-variant-numeric:tabular-nums;
+  font-weight:800; color:var(--muted); font-size:15px;
+}
+
+/* ── 바꿔 말하기 표 ───────────────────── */
+.sec{margin:46px 0 0}
+.sec h2{font-size:20px; font-weight:800; margin:0 0 6px; letter-spacing:-.015em}
+.sec .lead{font-size:15px; color:var(--muted); margin:0 0 18px}
+.pair{border-top:1px solid var(--line); padding:16px 0}
+.pair .before{
+  color:var(--muted); font-size:16px; margin:0 0 7px;
+  text-decoration:line-through; text-decoration-color:rgba(156,141,135,.5);
+}
+.pair .before.plain{text-decoration:none; font-style:italic}
+.pair .after{margin:0; font-size:17px; font-weight:600}
+.note{
+  margin:18px 0 0; padding:14px 16px; background:var(--paper);
+  border:1px solid var(--line); border-radius:12px;
+  font-size:15px; color:var(--sub);
+}
+.note strong{color:var(--ink)}
+
+/* ── 하단 CTA — 버튼 ──────────────────── */
+.cta-end{
+  margin:56px 0 0; padding:32px 26px;
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:18px;
+}
+.cta-end h2{font-size:22px; font-weight:800; margin:0 0 10px; line-height:1.42; letter-spacing:-.02em}
+.cta-end p{margin:0 0 15px; color:var(--sub); font-size:16px}
+.cta-end strong{color:var(--ink); font-weight:700}
+.btn{
+  display:block; margin:26px 0 14px; padding:17px 20px;
+  background:var(--coral); color:#fff; text-align:center;
+  border-radius:13px; font-size:17px; font-weight:800;
+  text-decoration:none; letter-spacing:-.01em;
+}
+.kicker{margin:0; font-size:15px; color:var(--coral); font-weight:700; text-align:center}
+
+/* ── 출처 ─────────────────────────────── */
+.src{
+  margin:46px 0 0; padding-top:22px; border-top:1px solid var(--line);
+  font-size:13px; line-height:1.7; color:var(--muted);
+}
+.src a{color:var(--muted); word-break:break-all}
+.src p{margin:0 0 8px}
+
+@media (max-width:400px){
+  body{font-size:16px}
+  h1{font-size:26px}
+  .wrap{padding:36px 18px 56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="brand">HEARTCONNECT</p>
+<h1>대화가 깊어지는 순서</h1>
+<div class="intro">
+<p>질문 목록은 많은데, 정작 막히는 건 두 군데예요.<br>언제 깊은 질문으로 넘어가야 할지, 그리고 상대가 답한 다음에 뭐라고 해야 할지.</p>
+<p>시카고대 연구팀이 처음 본 사람들을 짝지어 대화하게 했습니다. 다들 깊은 얘기는 부담스러울 거라고 했는데, 막상 대화한 사람들은 달랐어요. 훨씬 덜 어색했고, 더 즐거웠고, 더 가까웠다고요.</p>
+<p>핵심은 질문 자체가 아니라 <strong>순서</strong>였습니다.<br>가볍게 시작해서 조금씩 깊어지고, <strong>둘 다 똑같이</strong> 답하는 것.</p>
+</div>
+<section class="howto">
+<h2>쓰는 법</h2>
+<ul>
+<li>1단계부터 순서대로. 갑자기 3단계로 뛰지 않기.</li>
+<li>한 단계에서 서너 개면 충분합니다. 다 물을 필요 없어요.</li>
+<li>내가 먼저 답하기. 한 사람만 털어놓으면 효과가 없습니다.</li>
+</ul>
+</section>
+<section class="cta-mid">
+<h2>이런 대화, 어디서 하면 좋을까요?</h2>
+<p>사실 이 질문들은 처음 만난 사이에서 가장 잘 통한다고 해요. 연구도 그렇게 했고요. 문제는 요즘 처음 만난 사람과 이렇게 이야기할 자리가 없다는 거죠.</p>
+<p>하트커넥트는 대화를 통해 결이 맞는 사람을 찾아가는 블라인드 연애 프로그램이에요. 어떤 곳인지 한번 확인해보세요.</p>
+<p><a href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a3_deeptalk&utm_content=mid">→ 하트커넥트 보러 가기</a></p>
+</section>
+<section class="set">
+<h2>1단계</h2>
+<p class="set-sub">가볍게 열기</p>
+<ol class="q">
+<li><span class="n">1</span><span>요즘 제일 기다려지는 게 뭐예요?</span></li>
+<li><span class="n">2</span><span>오늘 여기 오는 길은 어땠어요?</span></li>
+<li><span class="n">3</span><span>요즘 자주 듣는 노래 있어요?</span></li>
+<li><span class="n">4</span><span>주말에 아무 약속 없으면 보통 뭐 하세요?</span></li>
+<li><span class="n">5</span><span>최근에 산 것 중에 제일 잘 샀다 싶은 게 뭐예요?</span></li>
+<li><span class="n">6</span><span>시간 가는 줄 모르고 하는 게 있어요?</span></li>
+<li><span class="n">7</span><span>일 끝나고 제일 먼저 뭐 하세요?</span></li>
+<li><span class="n">8</span><span>요즘 빠져 있는 거 있어요?</span></li>
+<li><span class="n">9</span><span>혼자 있을 때 주로 뭐 하세요?</span></li>
+<li><span class="n">10</span><span>그 동네에서 제일 좋아하는 자리가 어디예요?</span></li>
+</ol>
+</section>
+<section class="set">
+<h2>2단계</h2>
+<p class="set-sub">한 뼘 더 들어가기</p>
+<ol class="q">
+<li><span class="n">11</span><span>그 일 하면서 제일 뿌듯했던 순간이 언제예요?</span></li>
+<li><span class="n">12</span><span>사람들이 나에 대해 자주 오해하는 게 있어요?</span></li>
+<li><span class="n">13</span><span>요즘 제일 신경 쓰이는 게 뭐예요?</span></li>
+<li><span class="n">14</span><span>다시 가고 싶은 곳이 있어요? 왜요?</span></li>
+<li><span class="n">15</span><span>보고 나서 한참 생각났던 영화나 책이 있어요?</span></li>
+<li><span class="n">16</span><span>힘든데도 계속하게 되는 게 있어요?</span></li>
+<li><span class="n">17</span><span>가족 중에 제일 닮고 싶은 사람이 누구예요?</span></li>
+<li><span class="n">18</span><span>최근에 마음이 놓였던 순간이 언제였어요?</span></li>
+<li><span class="n">19</span><span>친구한테 제일 고마웠던 게 뭐예요?</span></li>
+<li><span class="n">20</span><span>스스로 좀 괜찮다고 느낄 때가 언제예요?</span></li>
+</ol>
+</section>
+<section class="set">
+<h2>3단계</h2>
+<p class="set-sub">깊게 들어가기</p>
+<ol class="q">
+<li><span class="n">21</span><span>인생에서 가장 감사한 건 무엇인가요?</span></li>
+<li><span class="n">22</span><span>다른 사람 앞에서 울었던 때를 이야기해 주실 수 있나요?</span></li>
+<li><span class="n">23</span><span>자라온 환경에서 딱 하나 바꿀 수 있다면 뭘 바꾸고 싶나요?</span></li>
+<li><span class="n">24</span><span>제일 무서운 게 뭐예요?</span></li>
+<li><span class="n">25</span><span>요즘 제일 외로울 때가 언제예요?</span></li>
+<li><span class="n">26</span><span>지금까지 내린 결정 중에 제일 잘한 게 뭐예요?</span></li>
+<li><span class="n">27</span><span>누구한테도 말 못 한 게 있다면, 어떤 종류의 얘기예요?</span></li>
+<li><span class="n">28</span><span>1년 뒤에 갑자기 죽는다면 지금 사는 방식을 바꿀 건가요?</span></li>
+<li><span class="n">29</span><span>나랑 친한 친구가 된다면, 그 사람이 꼭 알았으면 하는 게 뭔가요?</span></li>
+<li><span class="n">30</span><span>지금 이 대화에서 어떤 기분이 들어요?</span></li>
+</ol>
+</section>
+<section class="sec">
+<h2>질문을 꺼내는 연결 문장</h2>
+<p class="lead">깊은 질문은 던지는 게 아니라, 양해를 구하고 여는 것</p>
+<div class="pair">
+<p class="before plain">(갑자기 깊은 질문을 하고 싶을 때)</p>
+<p class="after">“갑자기 좀 이상한 질문인데요, 물어봐도 돼요?”</p>
+</div>
+<div class="pair">
+<p class="before plain">(분위기가 가벼울 때)</p>
+<p class="after">“재밌는 질문 하나 해도 돼요?”</p>
+</div>
+<div class="pair">
+<p class="before plain">(내가 먼저 열고 싶을 때)</p>
+<p class="after">“저는 이런 편인데, ○○님은 어떠세요?”</p>
+</div>
+<div class="pair">
+<p class="before plain">(상대가 머뭇거릴 때)</p>
+<p class="after">“어려우면 안 하셔도 돼요. 저부터 말할게요.”</p>
+</div>
+<div class="pair">
+<p class="before plain">(대화를 마무리할 때)</p>
+<p class="after">“오늘 얘기 중에 제일 기억에 남는 게 뭐예요?”</p>
+</div>
+<div class="note"><strong>먼저 열지 않으면 취조가 된다.</strong> 연구에서 효과가 난 건 둘 다 똑같이 답했을 때다.</div>
+</section>
+<section class="sec">
+<h2>상대가 답한 뒤 이어가는 법</h2>
+<p class="lead">하버드 연구팀이 스피드데이팅에서 확인한 것 — 이어 묻는 사람이 두 번째 만남을 얻었다</p>
+<div class="pair">
+<p class="before">“캐나다 가려고요.” → “저는 일본 갔었어요.”</p>
+<p class="after">“캐나다는 어쩌다 정하셨어요?”</p>
+</div>
+<div class="pair">
+<p class="before">“요즘 좀 바빠요.” → “저도 바빠요.”</p>
+<p class="after">“어떤 게 제일 바쁘세요?”</p>
+</div>
+<div class="pair">
+<p class="before">“운동 좀 해요.” → “무슨 운동 하세요?”</p>
+<p class="after">“그거 하고 나면 기분이 어때요?”</p>
+</div>
+<div class="pair">
+<p class="before">“그냥 그랬어요.” → (화제 바꾸기)</p>
+<p class="after">“어떤 점이 아쉬우셨어요?”</p>
+</div>
+<div class="pair">
+<p class="before">“잘됐네요!”</p>
+<p class="after">“어떻게 된 거예요? 더 얘기해주세요.”</p>
+</div>
+<div class="note">왼쪽처럼 <strong>주제를 바꾸는 질문은 소용없었다.</strong> 오른쪽처럼 방금 들은 말을 <strong>한 겹 더 파는</strong> 질문이 호감을 만들었다.</div>
+</section>
+<section class="cta-end">
+<h2>질문보다 어려운 건 상대를 찾는 일이죠 🙂</h2>
+<p>하트커넥트는 대화로 먼저 만나요.<br>사진이 아니라 <strong>어떤 대답을 하는 사람인지</strong>부터 보이는 거예요.</p>
+<p>회차가 열리면 질문에 답을 쓰고,<br><strong>답변만 보고 결이 맞는 사람을 고르는 ‘블라인드 픽’</strong>을 해요.<br>AI 일러스트 프사라 부담 없이 시작하고, 대신 말이 남아요.</p>
+<p>3단계까지 같이 가줄 사람, 여기서 만나실지도 몰라요 +_+</p>
+<a class="btn" href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a3_deeptalk&utm_content=end">하트커넥트 시작하기</a>
+<p class="kicker">처음 가입하면 하트 30개도 드리니 꼭 확인해보세요!</p>
+</section>
+<footer class="src">
+<p>Kardas, M., Kumar, A., &amp; Epley, N. (2022).<br>Overly Shallow?: Miscalibrated Expectations Create a Barrier to Deeper Conversation.<br>Journal of Personality and Social Psychology.</p>
+<p><a href="https://www.apa.org/pubs/journals/releases/psp-pspa0000281.pdf">https://www.apa.org/pubs/journals/releases/psp-pspa0000281.pdf</a></p>
+<p>Huang, K., Yeomans, M., Brooks, A. W., Minson, J., &amp; Gino, F. (2017).<br>It Doesn’t Hurt to Ask: Question-Asking Increases Liking.<br>Journal of Personality and Social Psychology, 113(3), 430-452.</p>
+<p><a href="https://www.apa.org/pubs/journals/releases/psp-pspi0000097.pdf">https://www.apa.org/pubs/journals/releases/psp-pspi0000097.pdf</a></p>
+<p>3단계 질문 30개와 연결 문장은 하트커넥트가 쓴 것입니다.<br>3단계 일부는 아론 교수팀의 36가지 질문에서 가져왔습니다.</p>
+</footer>
+</div>
+</body>
+</html>
