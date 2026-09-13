@@ -54,6 +54,18 @@ const entry = sched.posts.find((p) => p.date === todayKST);
 if (!entry) { console.log(`오늘(${todayKST}) 자 일정 없음 — 종료`); process.exit(0); }
 if (entry.posted_at) { console.log(`${todayKST} 이미 게시함 (${entry.posted_at}) — 건너뜀`); process.exit(0); }
 
+// 🔴 게시 시각 — 기본 **20:07 KST**. 편마다 `at: "14:00"` 으로 앞당길 수 있다.
+//    크론이 하루 여러 슬롯 도니까 **아직 이른 편은 건너뛴다**. 안 그러면
+//    14시 슬롯에서 저녁 편까지 나가 버린다. "HH:MM" 이라 문자열 비교로 충분하다.
+const nowKST = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: false,
+}).format(new Date());
+const at = entry.at || '20:07';
+if (nowKST < at) {
+  console.log(`${todayKST} ${entry.slug} 는 ${at} 이후 게시 — 지금 ${nowKST} KST, 건너뜀`);
+  process.exit(0);
+}
+
 const base = sched.base_url.replace(/\/$/, '');
 const isReel = entry.kind === 'reel';
 
