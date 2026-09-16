@@ -95,6 +95,8 @@ ol.q .n{
 .pair .before.plain{text-decoration:none; font-style:italic}
 /* 책 제목·항목명처럼 「틀린 것」이 아닌 왼쪽 — 취소선 없이 굵게 */
 .pair .before.keep{text-decoration:none; color:var(--ink); font-weight:700; font-size:17px}
+/* 제목이 굵으면 설명은 얇고 작게 — 같은 두께면 눈이 못 쉰다(라일라 2026-09-16) */
+.pair .before.keep + .after{font-weight:400; font-size:15px; color:var(--muted); line-height:1.6}
 .pair .after{margin:0; font-size:17px; font-weight:600}
 .note{
   margin:18px 0 0; padding:14px 16px; background:var(--paper);
