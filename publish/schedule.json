@@ -303,6 +303,17 @@
       "kind": "reel",
       "video": "v05_deep-talk.mp4",
       "cover": "v05_deep-talk.jpg"
+    },
+    {
+      "date": "2026-09-24",
+      "weekday": "목",
+      "slug": "reel_shortdrama_hookcut",
+      "caption": "블라인드 연프? 그게 뭔데.\n블라인드 연프, 하트커넥트",
+      "posted_at": null,
+      "media_id": null,
+      "permalink": null,
+      "kind": "reel",
+      "video": "shortdrama_hookcut.mp4"
     }
   ]
 }
