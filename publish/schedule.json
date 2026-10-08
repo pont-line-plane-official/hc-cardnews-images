@@ -343,11 +343,25 @@
       "date": "2026-10-09",
       "weekday": "금",
       "slug": "2026-10-09_async-open-notice",
+      "at": "15:00",
       "caption": "📢 10월 11일(일), 완전히 새로운 연프가 시작됩니다.\n\n이제 밤 10시 전에도\n하루 종일 조금씩 서로를 열어봐요.\n\n첫 느낌, 같이 들을래?, 보이스레터, 블라인드 픽, 밸런스 —\n낮 동안 카드를 하나씩 열어 보고\n설렘 가득한 채로 밤 10시 단톡방에서 만나요.\n\n🎁 지금 사전 신청하면 참가비 무료\n프로필 링크 → 앱 설치 → 연프 탭 「사전 신청하기(무료 참여)」\n\n블라인드 연프, 하트커넥트",
       "posted_at": null,
       "media_id": null,
       "permalink": null,
       "cards": 1
+    },
+    {
+      "date": "2026-10-10",
+      "weekday": "토",
+      "slug": "1010_newprogram_reels",
+      "at": "15:00",
+      "caption": "🎙️ 이제 첫인사도 목소리로.\n\n오늘 밤 12시, 완전히 새로운 연프가 시작돼요.\n하루 동안 조금씩 서로를 열어보고, 밤 10시 단톡방에서 만나요.\n\n🎁 오늘 밤 11시 30분까지 사전 신청하면 참가비 무료\n프로필 링크 → 앱 설치 → 연프 탭 「사전 신청하기(무료 참여)」\n\n블라인드 연프, 하트커넥트",
+      "posted_at": null,
+      "media_id": null,
+      "permalink": null,
+      "kind": "reel",
+      "video": "newprogram_reels.mp4",
+      "cover": "newprogram_reels.jpg"
     }
   ]
 }
