@@ -2,7 +2,7 @@
 /**
  * 오늘 자 콘텐츠를 인스타그램에 게시한다. (GitHub Actions 용, 의존성 없음)
  *
- * 캐러셀(기본)과 **릴스**(`kind: "reel"`) 를 모두 다룬다.
+ * 캐러셀(기본)과 **릴스**(`kind: "reel"`), 그리고 **한 장짜리 이미지**(카드 1장)를 다룬다.
  * 🔴 릴스는 **음원을 API 로 붙일 수 없고, 게시 후 추가도 불가능하다**(2026-08-22 확인).
  *    → 음악이 파일에 들어있는 편만 자동으로 올린다. 인스타 음악을 쓸 편은 수동 업로드.
  *
@@ -76,7 +76,7 @@ const urls = isReel
       `${base}/${entry.slug}/4x5/${String(i + 1).padStart(2, '0')}.png`);
 
 console.log(`📅 ${todayKST}(${entry.weekday}) · ${entry.slug} · ` +
-  (isReel ? `릴스 ${entry.video}` : `카드 ${urls.length}장`));
+  (isReel ? `릴스 ${entry.video}` : urls.length === 1 ? '이미지 1장' : `카드 ${urls.length}장`));
 
 // 파일이 실제로 열리는지 먼저 확인 — Meta 서버가 직접 받아간다
 for (const u of urls) {
@@ -111,6 +111,12 @@ if (isReel) {
     access_token: token,
   }, 'POST');
   await waitReady(parent.id, '릴스', 100);
+} else if (urls.length === 1) {
+  // 🔴 한 장짜리(서비스 공지 등)는 캐러셀이 아니라 단일 이미지로 올린다 — 캐러셀은 2장 이상만 된다
+  parent = await graph(`${igUser}/media`, {
+    image_url: urls[0], caption: entry.caption, access_token: token,
+  }, 'POST');
+  await waitReady(parent.id, '이미지');
 } else {
   const children = [];
   for (let i = 0; i < urls.length; i++) {
