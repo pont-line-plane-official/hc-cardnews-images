@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>또 보고 싶은 사람이 되는 말 | 하트커넥트</title>
+<meta name="description" content="릴스에서 센 8개를 소개팅·썸 자리에서 바로 쓰는 말로. 하나씩 늘려보세요.">
+<meta property="og:title" content="또 보고 싶은 사람이 되는 말">
+<meta property="og:description" content="릴스에서 센 8개를 소개팅·썸 자리에서 바로 쓰는 말로. 하나씩 늘려보세요.">
+<meta property="og:type" content="article">
+<meta name="robots" content="noindex">
+<style>
+/* 하트커넥트 DM 자료 페이지 — 공통 스타일
+   토큰은 templates/card.html :root 와 동일하게 유지한다. */
+:root{
+  --bg:#FBF7F2; --paper:#FFFCF8; --ink:#231D1B; --sub:#5C4F4A;
+  --muted:#9C8D87; --coral:#E0562F; --line:rgba(35,29,27,.12);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  font-size:17px; line-height:1.72; word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:620px; margin:0 auto; padding:44px 22px 64px}
+
+/* ── 머리말 ───────────────────────────── */
+.brand{
+  font-size:13px; letter-spacing:.14em; color:var(--muted);
+  font-weight:700; margin:0 0 22px;
+}
+h1{
+  font-size:30px; line-height:1.34; font-weight:800;
+  letter-spacing:-.02em; margin:0 0 26px;
+}
+.intro p{margin:0 0 17px; color:var(--sub)}
+.intro strong{color:var(--ink); font-weight:700}
+
+/* ── 쓰는 법 ──────────────────────────── */
+.howto{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:14px; padding:22px 24px; margin:30px 0;
+}
+.howto h2{font-size:16px; font-weight:800; margin:0 0 12px; letter-spacing:-.01em}
+.howto ul{margin:0; padding-left:19px}
+.howto li{margin:7px 0; color:var(--sub); font-size:16px}
+
+/* ── 중간 CTA — 박스, 버튼 없음 ─────────── */
+.cta-mid{
+  border-left:3px solid var(--coral);
+  background:var(--paper);
+  border-radius:0 14px 14px 0;
+  padding:26px 24px; margin:38px 0;
+}
+.cta-mid h2{
+  font-size:19px; font-weight:800; margin:0 0 14px;
+  letter-spacing:-.015em; line-height:1.45;
+}
+.cta-mid p{margin:0 0 14px; color:var(--sub); font-size:16px}
+.cta-mid a{
+  color:var(--coral); font-weight:700; text-decoration:none;
+  border-bottom:1.5px solid rgba(224,86,47,.34); padding-bottom:1px;
+}
+
+/* ── 질문 목록 ────────────────────────── */
+.set{margin:44px 0 0}
+.set > h2{
+  font-size:20px; font-weight:800; color:var(--coral);
+  letter-spacing:-.01em; margin:0 0 5px;
+}
+.set > .set-sub{font-size:16px; color:var(--muted); margin:0 0 16px}
+ol.q{margin:0; padding:0; list-style:none; counter-reset:none}
+ol.q li{
+  display:flex; gap:14px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--line);
+  font-size:15.5px; line-height:1.66;   /* 세트 헤더보다 작게 — 위계 */
+}
+ol.q li:last-child{border-bottom:0}
+ol.q .n{
+  flex:0 0 28px; font-variant-numeric:tabular-nums;
+  font-weight:800; color:var(--muted); font-size:15px;
+}
+
+/* ── 바꿔 말하기 표 ───────────────────── */
+.sec{margin:46px 0 0}
+.sec h2{font-size:20px; font-weight:800; margin:0 0 6px; letter-spacing:-.015em}
+.sec .lead{font-size:15px; color:var(--muted); margin:0 0 18px}
+.pair{border-top:1px solid var(--line); padding:16px 0}
+.pair .before{
+  color:var(--muted); font-size:16px; margin:0 0 7px;
+  text-decoration:line-through; text-decoration-color:rgba(156,141,135,.5);
+}
+.pair .before.plain{text-decoration:none; font-style:italic}
+/* 책 제목·항목명처럼 「틀린 것」이 아닌 왼쪽 — 취소선 없이 굵게 */
+.pair .before.keep{text-decoration:none; color:var(--ink); font-weight:700; font-size:17px}
+/* 제목이 굵으면 설명은 얇고 작게 — 같은 두께면 눈이 못 쉰다(라일라 2026-09-16) */
+.pair .before.keep + .after{font-weight:400; font-size:15px; color:var(--muted); line-height:1.6}
+.pair .after{margin:0; font-size:17px; font-weight:600}
+.note{
+  margin:18px 0 0; padding:14px 16px; background:var(--paper);
+  border:1px solid var(--line); border-radius:12px;
+  font-size:15px; color:var(--sub);
+}
+.note strong{color:var(--ink)}
+
+/* ── 하단 CTA — 버튼 ──────────────────── */
+.cta-end{
+  margin:56px 0 0; padding:32px 26px;
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:18px;
+}
+.cta-end h2{font-size:22px; font-weight:800; margin:0 0 10px; line-height:1.42; letter-spacing:-.02em}
+.cta-end p{margin:0 0 15px; color:var(--sub); font-size:16px}
+.cta-end strong{color:var(--ink); font-weight:700}
+.btn{
+  display:block; margin:26px 0 14px; padding:17px 20px;
+  background:var(--coral); color:#fff; text-align:center;
+  border-radius:13px; font-size:17px; font-weight:800;
+  text-decoration:none; letter-spacing:-.01em;
+}
+.kicker{margin:0; font-size:15px; color:var(--coral); font-weight:700; text-align:center}
+
+/* ── 출처 ─────────────────────────────── */
+.src{
+  margin:46px 0 0; padding-top:22px; border-top:1px solid var(--line);
+  font-size:13px; line-height:1.7; color:var(--muted);
+}
+.src a{color:var(--muted); word-break:break-all}
+.src p{margin:0 0 8px}
+
+@media (max-width:400px){
+  body{font-size:16px}
+  h1{font-size:26px}
+  .wrap{padding:36px 18px 56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="brand">HEARTCONNECT</p>
+<h1>또 보고 싶은 사람이<br>되는 말</h1>
+<div class="intro">
+<p>릴스에서 몇 개 나오셨어요?</p>
+<p>또 보고 싶은 사람은 말을 잘하는 사람이 아니라 <strong>나를 궁금해해 주는 사람</strong>이래요. 여기엔 8개를 <strong>소개팅·썸 자리에서 바로 쓰는 말</strong>로 정리했어요.</p>
+</div>
+<section class="howto">
+<h2>쓰는 법</h2>
+<ul>
+<li>적게 나왔다면 없는 것 중에 하나만 골라서 다음 만남에 해보세요.</li>
+<li>따옴표 안의 말은 그대로 따라 해도 돼요. 내 말투로 바꾸면 더 좋고요.</li>
+<li>많이 나왔다면 1번과 8번을 같이 써보세요. 대화가 끊길 틈이 없어요.</li>
+</ul>
+</section>
+<section class="cta-mid">
+<h2>근데 이걸 어디서 연습하죠?</h2>
+<p>소개팅이 자주 있는 것도 아니고, 처음 만난 사람한테 바로 해보기도 쉽지 않죠.</p>
+<p>하트커넥트는 대화를 통해 결이 맞는 사람을 찾아가는 블라인드 연애 프로그램이에요. 질문에 답을 쓰고, 답변을 보고 서로를 궁금해하면서 가까워져요. 이 8개를 매일 써볼 수 있는 곳이에요.</p>
+<p><a href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a6_again&utm_content=mid">→ 하트커넥트 보러 가기</a></p>
+</section>
+<section class="sec">
+<h2>8개, 이렇게 늘려요</h2>
+<p class="lead">릴스에서 센 8개를 소개팅·썸 자리에서 바로 꺼낼 수 있는 말로 바꿨어요. 따옴표 안은 그대로 따라 하면 돼요</p>
+<div class="pair">
+<p class="before keep">1  상대 말에 이어서 한 번 더 묻는다</p>
+<p class="after">「여행 좋아해요」 → 「어디가 제일 좋았어요?」<br>「요즘 좀 바빠요」 → 「뭐 때문에 제일 바빠요?」<br>상대 말에서 단어 하나만 받아서 다시 물으면 돼요. 새 질문을 찾을 필요가 없어요.</p>
+</div>
+<div class="pair">
+<p class="before keep">2  내 얘기도 조금은 꺼낸다</p>
+<p class="after">「저도 그런 적 있어요. 저는 그때 ~」<br>「저는 반대로 집에 있는 걸 좋아하는 편이에요」<br>질문 두 개에 내 얘기 하나. 묻기만 하면 면접이 되고, 내 얘기만 하면 발표가 돼요.</p>
+</div>
+<div class="pair">
+<p class="before keep">3  지난번에 들은 얘기를 기억한다</p>
+<p class="after">「저번에 이사한다던 거 잘 끝났어요?」<br>「○○ 좋아한다고 했죠. 이거 보니까 생각나서요」<br>대화가 끝나면 상대가 말한 것 하나만 메모해두세요. 다음 연락의 첫 마디가 됩니다.</p>
+</div>
+<div class="pair">
+<p class="before keep">4  좋은 소식엔 같이 신난다</p>
+<p class="after">「대박, 어떻게 된 거예요?」<br>「축하해요! 그때 기분 어땠어요?」<br>「아 좋겠다」로 끝내거나 「나도 예전에~」로 내 얘기를 가져오지 마세요. 상대 소식에 한 번 더 머물러 주는 게 핵심이에요.</p>
+</div>
+<div class="pair">
+<p class="before keep">5  같이 있을 땐 폰을 안 본다</p>
+<p class="after">「잠깐 폰 넣어둘게요」<br>앉자마자 이 한마디면 충분해요. 테이블 위에 올려두는 것만으로도 대화가 얕아진대요. 가방이나 주머니에 넣어두세요.</p>
+</div>
+<div class="pair">
+<p class="before keep">6  좋은 점을 그때그때 말해준다</p>
+<p class="after">「웃는 게 되게 편해 보여요」<br>「말할 때 진짜 잘 들어주시네요」<br>외모보다 행동을, 나중보다 그 자리에서. 듣는 사람은 말한 사람이 생각하는 것보다 훨씬 기뻐해요.</p>
+</div>
+<div class="pair">
+<p class="before keep">7  작은 실수는 웃으며 인정한다</p>
+<p class="after">「아 제가 잘못 들었네요 ㅎㅎ」<br>「저 길치라서요, 저 따라오시면 안 돼요」<br>변명 대신 웃으면서 한 줄. 빈틈이 보여야 상대도 편해져요.</p>
+</div>
+<div class="pair">
+<p class="before keep">8  내 말에 같이 웃는다</p>
+<p class="after">「아 진짜 웃기다 ㅋㅋ 그래서 어떻게 됐어요?」<br>상대가 웃긴 얘기를 하면 같이 웃고, 이어서 한 번 더 물어보세요. 1번과 8번이 같이 가면 대화가 안 끊겨요.</p>
+</div>
+<div class="note"><strong>한 번에 8개를 다 하려고 하지 마세요.</strong> 다음 만남에서 하나만 골라 해보면 충분해요. 제일 쉬운 건 5번, 제일 효과 큰 건 1번이에요.</div>
+</section>
+<section class="cta-end">
+<h2>8개 다 보셨네요 🙂</h2>
+<p>이제 궁금해할 사람만 있으면 되겠어요.</p>
+<p>하트커넥트는 대화로 먼저 만나요.<br>질문에 답을 쓰고,<br><strong>답변만 보고 결이 맞는 사람을 고르는 ‘블라인드 픽’</strong>을 해요.</p>
+<p>서로를 궁금해하는 사람들, 여기 모여 있어요 +_+</p>
+<a class="btn" href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a6_again&utm_content=end">하트커넥트 시작하기</a>
+<p class="kicker">처음 가입하면 하트 30개도 드리니 꼭 확인해보세요!</p>
+</section>
+<footer class="src">
+<p>8개 특징의 근거 — Huang 외 2017(이어 묻는 질문) · Collins &amp; Miller 1994(자기 얘기) · Reis &amp; Shaver 1988(알아준다는 느낌) · Gable 외 2004(좋은 소식에 반응) · Przybylski &amp; Weinstein 2013(폰) · Zhao &amp; Epley 2021(칭찬) · Aronson 외 1966(작은 실수) · Rathcke 외 2022(같이 웃기)</p>
+<p>따옴표 안의 말은 하트커넥트가 쓴 예시입니다.</p>
+</footer>
+</div>
+</body>
+</html>
