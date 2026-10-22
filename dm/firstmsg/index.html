@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>끊기기 전에 먼저 보내는 말 | 하트커넥트</title>
+<meta name="description" content="대화는 잘 통했는데 연락이 끊길 것 같을 때. 상황별로 그대로 보내면 되는 말.">
+<meta property="og:title" content="끊기기 전에 먼저 보내는 말">
+<meta property="og:description" content="대화는 잘 통했는데 연락이 끊길 것 같을 때. 상황별로 그대로 보내면 되는 말.">
+<meta property="og:type" content="article">
+<meta name="robots" content="noindex">
+<style>
+/* 하트커넥트 DM 자료 페이지 — 공통 스타일
+   토큰은 templates/card.html :root 와 동일하게 유지한다. */
+:root{
+  --bg:#FBF7F2; --paper:#FFFCF8; --ink:#231D1B; --sub:#5C4F4A;
+  --muted:#9C8D87; --coral:#E0562F; --line:rgba(35,29,27,.12);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  font-size:17px; line-height:1.72; word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:620px; margin:0 auto; padding:44px 22px 64px}
+
+/* ── 머리말 ───────────────────────────── */
+.brand{
+  font-size:13px; letter-spacing:.14em; color:var(--muted);
+  font-weight:700; margin:0 0 22px;
+}
+h1{
+  font-size:30px; line-height:1.34; font-weight:800;
+  letter-spacing:-.02em; margin:0 0 26px;
+}
+.intro p{margin:0 0 17px; color:var(--sub)}
+.intro strong{color:var(--ink); font-weight:700}
+
+/* ── 쓰는 법 ──────────────────────────── */
+.howto{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:14px; padding:22px 24px; margin:30px 0;
+}
+.howto h2{font-size:16px; font-weight:800; margin:0 0 12px; letter-spacing:-.01em}
+.howto ul{margin:0; padding-left:19px}
+.howto li{margin:7px 0; color:var(--sub); font-size:16px}
+
+/* ── 중간 CTA — 박스, 버튼 없음 ─────────── */
+.cta-mid{
+  border-left:3px solid var(--coral);
+  background:var(--paper);
+  border-radius:0 14px 14px 0;
+  padding:26px 24px; margin:38px 0;
+}
+.cta-mid h2{
+  font-size:19px; font-weight:800; margin:0 0 14px;
+  letter-spacing:-.015em; line-height:1.45;
+}
+.cta-mid p{margin:0 0 14px; color:var(--sub); font-size:16px}
+.cta-mid a{
+  color:var(--coral); font-weight:700; text-decoration:none;
+  border-bottom:1.5px solid rgba(224,86,47,.34); padding-bottom:1px;
+}
+
+/* ── 질문 목록 ────────────────────────── */
+.set{margin:44px 0 0}
+.set > h2{
+  font-size:20px; font-weight:800; color:var(--coral);
+  letter-spacing:-.01em; margin:0 0 5px;
+}
+.set > .set-sub{font-size:16px; color:var(--muted); margin:0 0 16px}
+ol.q{margin:0; padding:0; list-style:none; counter-reset:none}
+ol.q li{
+  display:flex; gap:14px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--line);
+  font-size:15.5px; line-height:1.66;   /* 세트 헤더보다 작게 — 위계 */
+}
+ol.q li:last-child{border-bottom:0}
+ol.q .n{
+  flex:0 0 28px; font-variant-numeric:tabular-nums;
+  font-weight:800; color:var(--muted); font-size:15px;
+}
+
+/* ── 바꿔 말하기 표 ───────────────────── */
+.sec{margin:46px 0 0}
+.sec h2{font-size:20px; font-weight:800; margin:0 0 6px; letter-spacing:-.015em}
+.sec .lead{font-size:15px; color:var(--muted); margin:0 0 18px}
+.pair{border-top:1px solid var(--line); padding:16px 0}
+.pair .before{
+  color:var(--muted); font-size:16px; margin:0 0 7px;
+  text-decoration:line-through; text-decoration-color:rgba(156,141,135,.5);
+}
+.pair .before.plain{text-decoration:none; font-style:italic}
+/* 책 제목·항목명처럼 「틀린 것」이 아닌 왼쪽 — 취소선 없이 굵게 */
+.pair .before.keep{text-decoration:none; color:var(--ink); font-weight:700; font-size:17px}
+/* 제목이 굵으면 설명은 얇고 작게 — 같은 두께면 눈이 못 쉰다(라일라 2026-09-16) */
+.pair .before.keep + .after{font-weight:400; font-size:15px; color:var(--muted); line-height:1.6}
+.pair .after{margin:0; font-size:17px; font-weight:600}
+.note{
+  margin:18px 0 0; padding:14px 16px; background:var(--paper);
+  border:1px solid var(--line); border-radius:12px;
+  font-size:15px; color:var(--sub);
+}
+.note strong{color:var(--ink)}
+
+/* ── 하단 CTA — 버튼 ──────────────────── */
+.cta-end{
+  margin:56px 0 0; padding:32px 26px;
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:18px;
+}
+.cta-end h2{font-size:22px; font-weight:800; margin:0 0 10px; line-height:1.42; letter-spacing:-.02em}
+.cta-end p{margin:0 0 15px; color:var(--sub); font-size:16px}
+.cta-end strong{color:var(--ink); font-weight:700}
+.btn{
+  display:block; margin:26px 0 14px; padding:17px 20px;
+  background:var(--coral); color:#fff; text-align:center;
+  border-radius:13px; font-size:17px; font-weight:800;
+  text-decoration:none; letter-spacing:-.01em;
+}
+.kicker{margin:0; font-size:15px; color:var(--coral); font-weight:700; text-align:center}
+
+/* ── 출처 ─────────────────────────────── */
+.src{
+  margin:46px 0 0; padding-top:22px; border-top:1px solid var(--line);
+  font-size:13px; line-height:1.7; color:var(--muted);
+}
+.src a{color:var(--muted); word-break:break-all}
+.src p{margin:0 0 8px}
+
+@media (max-width:400px){
+  body{font-size:16px}
+  h1{font-size:26px}
+  .wrap{padding:36px 18px 56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="brand">HEARTCONNECT</p>
+<h1>끊기기 전에<br>먼저 보내는 말</h1>
+<div class="intro">
+<p>대화는 잘 통했는데 연락이 끊긴 적 있죠?</p>
+<p>처음 대화한 사람들은 <strong>상대가 나를 좋아한 만큼을 실제보다 낮게 짐작</strong>한대요. 둘 다 「나만 즐거웠나?」 하다가 아무도 먼저 안 보내는 거예요. 그러니까 망설여질 땐 먼저 보내도 괜찮아요.</p>
+</div>
+<section class="howto">
+<h2>쓰는 법</h2>
+<ul>
+<li>지금 내 상황에 맞는 칸 하나만 골라서 보내보세요.</li>
+<li>답장이 오면 한 번 더 물어보세요. 대화가 다시 이어져요.</li>
+<li>답이 없으면 새 얘기로 한 번만. 그 이상은 기다려도 괜찮아요.</li>
+</ul>
+</section>
+<section class="cta-mid">
+<h2>근데 연락할 사람이 없다면요?</h2>
+<p>소개팅이 자주 있는 것도 아니고, 대화가 잘 통하는 사람을 만나기도 쉽지 않죠.</p>
+<p>하트커넥트는 대화를 통해 결이 맞는 사람을 찾아가는 블라인드 연애 프로그램이에요. 질문에 답을 쓰고, 답변을 보고 마음이 가는 사람에게 먼저 다가갈 수 있어요.</p>
+<p><a href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a7_firstmsg&utm_content=mid">→ 하트커넥트 보러 가기</a></p>
+</section>
+<section class="sec">
+<h2>상황별로, 그대로 보내면 돼요</h2>
+<p class="lead">릴스·캡션에 없는 말만 모았어요. 따옴표 안은 그대로 보내도 되고, 내 말투로 바꾸면 더 좋아요</p>
+<div class="pair">
+<p class="before keep">만난 날 밤</p>
+<p class="after">「덕분에 오늘 하루가 다 좋았어요」<br>「아까 그 얘기 마저 듣고 싶었는데 시간이 너무 빨리 갔네요」<br>길게 쓰지 마세요. 오늘이 좋았다는 것 하나면 충분해요.</p>
+</div>
+<div class="pair">
+<p class="before keep">다음 날</p>
+<p class="after">「어제 그 가게 이름 뭐였죠? 친구한테 알려주려고요」<br>「오늘 하루 종일 어제 얘기 생각났어요 ㅋㅋ」<br>어제 나눈 얘기 하나를 꺼내면 「나도 좋았다」는 뜻이 저절로 전해져요.</p>
+</div>
+<div class="pair">
+<p class="before keep">며칠 지났을 때</p>
+<p class="after">「요즘 바쁘셨어요? 저는 이번 주 정신없었어요」<br>「그때 추천해주신 거 드디어 해봤어요」<br>늦었다고 사과할 필요 없어요. 반가운 일을 핑계로 보내면 돼요.</p>
+</div>
+<div class="pair">
+<p class="before keep">답장이 짧게 왔을 때</p>
+<p class="after">「ㅎㅎ 그쪽은 주말에 뭐 하세요?」<br>짧은 답장은 관심이 없어서가 아니라 할 말을 고르는 중일 때가 많아요. 대답하기 쉬운 질문을 하나 붙여주세요.</p>
+</div>
+<div class="pair">
+<p class="before keep">읽고 답이 없을 때</p>
+<p class="after">(이틀쯤 지나서) 「저번에 얘기한 그 노래 오늘 들었는데 진짜 좋더라고요」<br>같은 질문을 다시 묻지 말고, 새 얘기로 가볍게 한 번만. 그래도 없으면 거기서 멈추세요.</p>
+</div>
+<div class="pair">
+<p class="before keep">다시 만나자고 할 때</p>
+<p class="after">「그때 얘기한 그 전시, 이번 주말에 같이 가볼래요?」<br>「다음엔 제가 아는 곳 소개해드리고 싶어요」<br>지난 대화에 나온 걸 약속으로 바꾸면 덜 부담스러워요.</p>
+</div>
+<div class="note"><strong>답장이 오면 한 번 더 물어보세요.</strong> 「그래서 어떻게 됐어요?」 「그건 왜요?」 한 마디면 대화가 다시 이어져요. 둘 다 「나만 즐거웠나?」 하고 있을 가능성이 높아요.</div>
+</section>
+<section class="cta-end">
+<h2>다 보셨네요 🙂</h2>
+<p>이제 먼저 보내기만 하면 돼요.</p>
+<p>하트커넥트는 대화로 먼저 만나요.<br>질문에 답을 쓰고,<br><strong>답변만 보고 결이 맞는 사람을 고르는 ‘블라인드 픽’</strong>을 해요.</p>
+<p>먼저 말 걸고 싶은 사람, 여기 있을지도 몰라요 +_+</p>
+<a class="btn" href="https://www.heartconnect.my/?utm_source=instagram&utm_medium=dm&utm_campaign=a7_firstmsg&utm_content=end">하트커넥트 시작하기</a>
+<p class="kicker">처음 가입하면 하트 30개도 드리니 꼭 확인해보세요!</p>
+</section>
+<footer class="src">
+<p>Boothby, Cooney, Sandstrom &amp; Clark (2018). The Liking Gap in Conversations. Psychological Science — 처음 대화한 사람들은 상대가 나를 좋아하고 즐거워한 정도를 실제보다 낮게 짐작했다.</p>
+<p>따옴표 안의 말은 하트커넥트가 쓴 예시입니다.</p>
+</footer>
+</div>
+</body>
+</html>
