@@ -49,20 +49,21 @@ async function waitReady(id, label, tries = 30) {
 }
 
 const sched = JSON.parse(readFileSync(SCHEDULE, 'utf8'));
-const entry = sched.posts.find((p) => p.date === todayKST);
-
-if (!entry) { console.log(`오늘(${todayKST}) 자 일정 없음 — 종료`); process.exit(0); }
-if (entry.posted_at) { console.log(`${todayKST} 이미 게시함 (${entry.posted_at}) — 건너뜀`); process.exit(0); }
+// 🔴 2026-10-22 — 하루 여러 편(첫 장면 시험용 체험 릴스 3개 등). 오늘 편 중 **아직 안 올렸고 시각이 된 것 하나**만 올린다.
+//    크론 슬롯마다 한 편씩 나간다(20:07 · 20:27 · 20:47 …). 시각 순서대로.
+const todays = sched.posts.filter((p) => p.date === todayKST);
+if (!todays.length) { console.log(`오늘(${todayKST}) 자 일정 없음 — 종료`); process.exit(0); }
+const pending = todays.filter((p) => !p.posted_at).sort((a, b) => (a.at || '20:07').localeCompare(b.at || '20:07'));
+if (!pending.length) { console.log(`${todayKST} 오늘 편 ${todays.length}개 모두 게시함 — 건너뜀`); process.exit(0); }
 
 // 🔴 게시 시각 — 기본 **20:07 KST**. 편마다 `at: "14:00"` 으로 앞당길 수 있다.
-//    크론이 하루 여러 슬롯 도니까 **아직 이른 편은 건너뛴다**. 안 그러면
-//    14시 슬롯에서 저녁 편까지 나가 버린다. "HH:MM" 이라 문자열 비교로 충분하다.
+//    크론이 하루 여러 슬롯 도니까 **아직 이른 편은 건너뛴다**. "HH:MM" 이라 문자열 비교로 충분하다.
 const nowKST = new Intl.DateTimeFormat('en-GB', {
   timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: false,
 }).format(new Date());
-const at = entry.at || '20:07';
-if (nowKST < at) {
-  console.log(`${todayKST} ${entry.slug} 는 ${at} 이후 게시 — 지금 ${nowKST} KST, 건너뜀`);
+const entry = pending.find((p) => (p.at || '20:07') <= nowKST);
+if (!entry) {
+  console.log(`${todayKST} 다음 편 ${pending[0].slug} 는 ${pending[0].at || '20:07'} 이후 게시 — 지금 ${nowKST} KST, 건너뜀`);
   process.exit(0);
 }
 
@@ -103,7 +104,8 @@ if (isReel) {
     media_type: 'REELS',
     video_url: urls[0],
     caption: entry.caption,
-    share_to_feed: 'true',
+    // 🧪 체험 릴스 — `trial: "MANUAL"` 이면 비팔로워에게만 먼저 보인다(팔로워 피드 공유 없음). 2026-10-22
+    ...(entry.trial ? { trial_params: JSON.stringify({ graduation_strategy: entry.trial }) } : { share_to_feed: 'true' }),
     // 🔴 표지 — cover_url 이 thumb_offset 을 이긴다. 9:16 권장 · 8MB 이하.
     //    영상 프레임보다 글자가 선명하고 프로필 그리드 톤이 통일된다.
     ...(coverUrl ? { cover_url: coverUrl } : {}),
